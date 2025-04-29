@@ -40,4 +40,9 @@ Technologies utilisées
     ngx-toastr # pour les notifications visuelles
     Bootstrap et CSS3
 
+Diagramme de classe
+
+![Diagramme_de_classe drawio](https://github.com/user-attachments/assets/c790220c-cf7f-4f49-aaed-fca3eb4994ce)
+
+
 
