@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span><h5>Liste des Course</h5></span>
+    <a routerLink="/add-course" class="btn btn-primary btn-sm">
+      <i class="bi bi-plus-lg"></i> Ajouter un Course
+    </a>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Classe</th>
+        <th>Subject</th>
+        <th>HalfYearly</th>
+        <th>AcademieYear</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (course of response ; track course.id) {
+          <tr>
+            <td>{{ course.name }}</td>
+            <td>{{ course.description }}</td>
+            <td>{{ course.classeName }}</td>
+            <td>{{ course.subjectName }}</td>
+            <td>{{ course.halfYearlyName }}</td>
+            <td>{{ course.academieName }}</td>
+            <td>
+              <button *ngIf="course.id !== undefined" (click)="editCourse(course)" class="btn btn-success btn-sm me-2">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button *ngIf="course.id" (click)="deleteCourse(course.id)" class="btn btn-danger btn-sm">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">List des Course</div>
+</div>
+
+

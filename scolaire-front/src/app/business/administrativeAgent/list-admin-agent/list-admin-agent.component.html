@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span><h5>Liste des Administrative Agent</h5></span>
+    <a routerLink="/add-admin" class="btn btn-primary btn-sm">
+      <i class="bi bi-plus-lg"></i> Ajouter un AdministrativeAgent
+    </a>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Email Pro</th>
+        <th>Email Personnel</th>
+        <th>Téléphone</th>
+        <th>Adresse</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (admin of response ; track admin.id) {
+          <tr>
+            <td>{{ admin.firstName }}</td>
+            <td>{{ admin.lastName }}</td>
+            <td>{{ admin.emailPro }}</td>
+            <td>{{ admin.emailPerso }}</td>
+            <td>{{ admin.phoneNumber }}</td>
+            <td>{{ admin.address }}</td>
+            <td>
+              <button *ngIf="admin.id !== undefined" (click)="editAdmin(admin)" class="btn btn-success btn-sm me-2">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button *ngIf="admin.id" (click)="deleteAdmin(admin.id)" class="btn btn-danger btn-sm">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">Liste des Administrative Agent</div>
+</div>
+
+
+

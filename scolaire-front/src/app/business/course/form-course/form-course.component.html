@@ -1,0 +1,63 @@
+<div class="card shadow-lg w-50 mx-auto mt-4 rounded-3">
+  <div class="card-header text-white bg-primary">
+    <h5 class="mb-0 text-center">Ajouter un Course</h5>
+  </div>
+  <div class="p-4">
+    <div *ngIf="errorMsg.length" class="alert alert-danger mt-2" role="alert">
+      <p class="m-0" *ngFor="let msg of errorMsg">{{ msg }}</p>
+    </div>
+    <hr>
+    <div class="card-body">
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom de Course</label>
+          <input [(ngModel)]="courseRequest.name" type="text" class="form-control" id="name" name="name" placeholder="Entrez le nom de Cour">
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="classeId" class="form-label">Classe</label>
+            <select [(ngModel)]="courseRequest.classeId" class="form-select" id="classeId" name="classeId">
+              <option *ngFor="let classe of classeResponse" [value]="classe.id">{{ classe.name }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label for="subjectId" class="form-label">Subject</label>
+            <select [(ngModel)]="courseRequest.subjectId" class="form-select" id="subjectId" name="subjectId">
+              <option *ngFor="let subject of subjectResponse" [value]="subject.id">{{ subject.name }}</option>
+            </select>
+          </div>
+        </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="halfYearlyId" class="form-label">Half Yearly</label>
+          <select [(ngModel)]="courseRequest.halfYearlyId" class="form-select" id="halfYearlyId" name="halfYearlyId">
+            <option *ngFor="let half of halfResponse" [value]="half.id">{{ half.name }}</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="academieYearId" class="form-label">Academie Year</label>
+          <select [(ngModel)]="courseRequest.academieYearId" class="form-select" id="academieYearId" name="academieYearId">
+            <option *ngFor="let academie of academieResponse" [value]="academie.id">{{ academie.name }}</option>
+          </select>
+        </div>
+      </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea [(ngModel)]="courseRequest.description" class="form-control" name="description" id="description" rows="4" placeholder="Entrez la description"></textarea>
+        </div>
+
+        <div class="text-center mt-4">
+          <button (click)="saveCourse()" type="submit" class="btn btn-success fw-bold px-4">
+            <i class="bi bi-check-circle"></i> Enregistrer
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

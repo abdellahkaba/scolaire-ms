@@ -1,0 +1,67 @@
+<div class="card shadow-lg">
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="errorMsg.length">
+    <p class="p-0 m-0" *ngFor="let msg of errorMsg">{{msg}}</p>
+  </div>
+  <hr>
+  <div class="card-header text-white bg-primary">
+    <h5 class="mb-0">Faire une Registration</h5>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="studentId" class="form-label">Student</label>
+          <select [(ngModel)]="request.studentId" class="form-select" id="studentId" name="studentId">
+            <option *ngFor="let student of studentResponse" [value]="student.id">{{ student.firstName }} {{ student.lastName }}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="administrativeAgentId" class="form-label">AdministrativeAgent</label>
+          <select [(ngModel)]="request.administrativeAgentId" class="form-select" id="administrativeAgentId" name="administrativeAgentId">
+            <option *ngFor="let admin of adminAgentResponse" [value]="admin.id">{{ admin.lastName }} {{ admin.firstName }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="classeId" class="form-label">Classe</label>
+          <select [(ngModel)]="request.classeId" class="form-select" id="classeId" name="classeId">
+            <option *ngFor="let classe of classeResponse" [value]="classe.id">{{ classe.name }}</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="programId" class="form-label">Program</label>
+          <select [(ngModel)]="request.programId" class="form-select" id="programId" name="programId">
+            <option *ngFor="let program of programResponse" [value]="program.id">{{ program.name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="date" class="form-label">Date Registration</label>
+          <input [(ngModel)]="request.date" type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="col-md-6">
+          <label for="academieYearId" class="form-label">Academie Year</label>
+          <select [(ngModel)]="request.academieYearId" class="form-select" id="academieYearId" name="academieYearId">
+            <option *ngFor="let academie of academieResponse" [value]="academie.id">{{ academie.name }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea [(ngModel)]="request.description" class="form-control" name="description" id="description" rows="4" placeholder="Entrez votre texte"></textarea>
+      </div>
+
+      <div class="text-center mt-4">
+        <button (click)="saveRegistration()" type="submit" class="btn btn-success">
+          <i class="bi bi-check-circle"></i> Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,112 @@
+<div class="sidebar">
+  <nav class="nav flex-column">
+
+    <a class="nav-link" routerLink="/admin">
+      <span class="icon">
+        <i class="bi bi-person-badge"></i> <!-- Icône pour l'agent administratif -->
+      </span>
+      <span class="description"> Administrative Agent</span>
+    </a>
+
+    <a class="nav-link" routerLink="/students">
+      <span class="icon">
+        <i class="bi bi-people"></i> <!-- Icône pour les étudiants -->
+      </span>
+      <span class="description"> Students</span>
+    </a>
+
+    <a class="nav-link" routerLink="/teachers">
+      <span class="icon">
+        <i class="bi bi-person-video2"></i> <!-- Icône pour les enseignants -->
+      </span>
+      <span class="description"> Teachers</span>
+    </a>
+
+    <a class="nav-link" routerLink="/registrations">
+      <span class="icon">
+        <i class="bi bi-clipboard-check"></i> <!-- Icône pour les inscriptions -->
+      </span>
+      <span class="description"> Registration</span>
+    </a>
+
+    <a class="nav-link" routerLink="/courses">
+      <span class="icon">
+        <i class="bi bi-journal-bookmark"></i> <!-- Icône pour les cours -->
+      </span>
+      <span class="description"> Courses</span>
+    </a>
+
+    <a class="nav-link" routerLink="/subjects">
+      <span class="icon">
+        <i class="bi bi-journal-text"></i> <!-- Icône pour les matières -->
+      </span>
+      <span class="description"> Subjects</span>
+    </a>
+
+    <a class="nav-link" routerLink="/sessions">
+      <span class="icon">
+        <i class="bi bi-calendar-event"></i> <!-- Icône pour les sessions -->
+      </span>
+      <span class="description"> Sessions</span>
+    </a>
+
+    <!-- Menu with dropdown -->
+    <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
+      <span class="icon">
+        <i class="bi bi-gear"></i> <!-- Icône pour les paramètres -->
+      </span>
+      <span class="description"> Settings
+        <i class="bi bi-caret-down-fill"></i>
+      </span>
+    </a>
+
+    <!-- submenu -->
+    <div class="sub-menu collapse" id="submenu">
+      <a class="nav-link" routerLink="/classes">
+        <span class="icon">
+          <i class="bi bi-building"></i> <!-- Icône pour les classes -->
+        </span>
+        <span class="description"> Classes</span>
+      </a>
+      <a class="nav-link" routerLink="/sectors">
+        <span class="icon">
+          <i class="bi bi-diagram-3"></i> <!-- Icône pour les secteurs -->
+        </span>
+        <span class="description"> Sectors</span>
+      </a>
+      <a class="nav-link" routerLink="/kinds">
+        <span class="icon">
+          <i class="bi bi-tags"></i> <!-- Icône pour les types -->
+        </span>
+        <span class="description"> Kinds</span>
+      </a>
+      <a class="nav-link" routerLink="/programs">
+        <span class="icon">
+          <i class="bi bi-list-task"></i> <!-- Icône pour les programmes -->
+        </span>
+        <span class="description"> Programs</span>
+      </a>
+      <a class="nav-link" routerLink="/half">
+        <span class="icon">
+          <i class="bi bi-calendar-range"></i> <!-- Icône pour les semestres -->
+        </span>
+        <span class="description"> HalfYearly</span>
+      </a>
+    </div>
+
+    <a class="nav-link" href="#">
+      <span class="icon">
+        <i class="bi bi-info-circle"></i> <!-- Icône pour la description -->
+      </span>
+      <span class="description"> Description </span>
+    </a>
+  </nav>
+</div>
+
+<div class="logout-button">
+  <button class="btn btn-danger" (click)="logout()">Déconnexion</button>
+</div>
+
+<main class="main-content">
+  <router-outlet/>
+</main>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_PATTERN_LEVEL">%-5level [scolaire,%X{traceId},%X{spanId}]</Property>
+        <Property name="LOG_DATEFORMAT_PATTERN">yyyy-MM-dd HH:mm:ss.SSS</Property>
+        <Property name="LOG_PATTERN">%clr{%d{${sys:LOG_DATEFORMAT_PATTERN}}}{faint} %clr{${sys:LOG_PATTERN_LEVEL}} %clr{%pid}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${sys:LOG_PATTERN}"/>
+        </Console>
+        <Console name="Console_JSON" target="SYSTEM_OUT" follow="true">
+            <JsonLayout complete="false" compact="false">
+                <KeyValuePair key="service" value="scolaire"/>
+                <KeyValuePair key="traceId" value="$${ctx:traceId}"/>
+                <KeyValuePair key="spanId" value="$${ctx:spanId}"/>
+            </JsonLayout>
+        </Console>
+        <!-- config fichier de log -->
+        <File name="file" fileName="logs/logs.log">
+            <!-- format console des logs dans le fichier -->
+                <PatternLayout pattern="[%t] %-5p | %-60c | %m (%F:%L)%n" />
+<!--            <JsonLayout complete="false" compact="false">-->
+<!--                <KeyValuePair key="service" value="scolaire"/>-->
+<!--            </JsonLayout>-->
+        </File>
+        <!-- config fichier de log -->
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="file" />
+        </Root>
+
+        <Logger name="com.isi.scolaire.academieYear.AcademieYearController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.academieYear.impl.AcademieYearServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.administrativeAgent.AdministrativeAgentController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.administrativeAgent.impl.AdministrativeAgentServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.classes.ClasseController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.classes.impl.ClasseServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.courses.CourseController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.courses.impl.CourseServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.halfYearly.HalfYearlyController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.halfYearly.impl.HalfYearlyServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.kind.KindController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.kind.impl.KindServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.program.ProgramController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.program.impl.ProgramServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.registration.RegistrationController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.registration.impl.RegistrationServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.sectors.SectorController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.sectors.impl.SectorServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+
+        <Logger name="com.isi.scolaire.sessions.SessionController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.sessions.impl.SessionServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.subjects.SubjectController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.subjects.impl.SubjectServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.student.StudentController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.student.impl.StudentServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Logger name="com.isi.scolaire.teacher.TeacherController" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+        <Logger name="com.isi.scolaire.teacher.impl.TeacherServiceImpl" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,45 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB_NAME:scolaire-db}?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DB_USERNAME:username}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  application:
+    name: scolaire-ms
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          issuer-uri: ${KEYCLOAK_URL:http://keycloak:8181}/realms/${KEYCLOAK_REALM:scolaire-ms}
+#          jwk-set-uri: "http://keycloak:8181/realms/scolaire-ms/protocol/openid-connect/certs"
+springdoc:
+  default-produces-media-type: application/json
+
+server:
+  port: 8092
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+#        security: DEBUG
+#      keycloak: DEBUG
+
+  file:
+    name: logs/logs.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

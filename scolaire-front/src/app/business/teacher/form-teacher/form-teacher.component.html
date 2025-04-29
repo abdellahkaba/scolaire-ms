@@ -1,0 +1,52 @@
+<div class="card shadow-lg">
+  <div class="alert alert-danger mt-2" role="alert" *ngIf="errorMsg.length">
+    <p class="p-0 m-0" *ngFor="let msg of errorMsg">{{msg}}</p>
+  </div>
+  <hr>
+  <div class="card-header text-white bg-primary">
+    <h5 class="mb-0">Ajouter un Teacher</h5>
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">Prénom</label>
+          <input [(ngModel)]="teacherRequest.firstName" type="text" class="form-control" id="firstName" name="firstName" placeholder="Entrez le prénom">
+        </div>
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Nom</label>
+          <input [(ngModel)]="teacherRequest.lastName" type="text" name="lastName" class="form-control" id="lastName" placeholder="Entrez le nom">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="emailPro" class="form-label">Email Professionnel</label>
+          <input type="email" [(ngModel)]="teacherRequest.emailPro" class="form-control" name="emailPro" id="emailPro" placeholder="ex: pro@entreprise.com">
+        </div>
+        <div class="col-md-6">
+          <label for="emailPerso" class="form-label">Email Personnel</label>
+          <input [(ngModel)]="teacherRequest.emailPerso" type="email" class="form-control" name="emailPerso" id="emailPerso" placeholder="ex: perso@gmail.com">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="phoneNumber" class="form-label">Téléphone</label>
+          <input [(ngModel)]="teacherRequest.phoneNumber" type="tel" name="phoneNumber" class="form-control" id="phoneNumber" placeholder="ex: +221 77 123 45 67">
+        </div>
+        <div class="col-md-6">
+          <label for="adress" class="form-label">Adresse</label>
+          <input [(ngModel)]="teacherRequest.address" type="text" class="form-control" name="adress" id="adress" placeholder="Entrez l'adresse">
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <button (click)="saveTeacher()" type="submit" class="btn btn-success">
+          <i class="bi bi-check-circle"></i> Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
