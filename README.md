@@ -12,6 +12,10 @@ Faites clone
     # Executer la commande docker-compose dans la grande racine du projet
   
       docker compose up -d
+
+    Keycloak import realm
+
+    alez-y dans dossier keycloak/realm/scolaire-ms puis creer un nouveau realm et importer le realm scolaire-ms
       
     # Démarrer le projet pour les tests (backend)
 
